@@ -20,14 +20,25 @@
 */
 
 //CODE HERE
+// class Employee {
+//     constructor (name,shifts){
+//         this.name = name;
+//         this.shifts = shifts;
+//     }
+//     getSchedule(){
+//     console.log(`${this.name} works on ${this.shifts}`)
+// }
+// }
+
 class Employee {
-    constructor (name,shifts){
+    constructor (name, shifts){
         this.name = name;
         this.shifts = shifts;
     }
+
     getSchedule(){
-    console.log(`${this.name} works on ${this.shifts}`)
-}
+        return `${this.name} works on ${this.shifts}`
+    }
 }
 
 
@@ -42,14 +53,18 @@ class Employee {
 */
 
 //CODE HERE
-let empOne = new Employee('Draden', 'weekday afternoons')
+// let empOne = new Employee('Draden', 'weekday afternoons')
+
+let empOne = new Employee("Jess", ["Weekday Mornings","Weekday Afternoons"])
 /*
     Call the `getSchedule` method on the
     `empOne` object.
 */
 
 //CODE HERE
-empOne.getSchedule()
+// empOne.getSchedule()
+
+console.log(empOne.getSchedule())
 
 /*
     Make a copy of the empOne object
@@ -64,10 +79,8 @@ empOne.getSchedule()
 */
 
 //CODE HERE
-let empTwo = {...empOne}
+let empTwo = {...empOne,name: "Nick"}
 console.log(empTwo)
-
-let Employee.name = 'Nick'
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -96,7 +109,15 @@ let Employee.name = 'Nick'
 class Manager extends Employee {
     constructor (name,shifts,employees){
         super(name,shifts)
-        this.employees = [employees]
+        this.employees = employees
+    }
+
+    getEmployees(){
+        return `${this.name} manages ${this.employees}`
+    }
+
+    addEmployee(emp){
+        this.employees.push(emp)
     }
 }
 
@@ -113,7 +134,7 @@ class Manager extends Employee {
 */
 
 //CODE HERE
-
+let manager = new Manager("Winston", ["Weekday Mornings", "Weekday Afternoons"], ["Cece", "Scmidt"])
 
 /*
     Call the `getEmployees` method on the
@@ -121,7 +142,7 @@ class Manager extends Employee {
 */
 
 //CODE HERE
-
+console.log(manager.getEmployees())
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -129,7 +150,7 @@ class Manager extends Employee {
 */
 
 //CODE HERE 
-
+manager.addEmployee("Coach")
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -137,3 +158,4 @@ class Manager extends Employee {
 */
 
 //CODE HERE
+console.log(manager.getEmployees())

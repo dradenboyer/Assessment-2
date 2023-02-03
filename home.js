@@ -23,8 +23,8 @@
 
 //CODE HERE
 
-const greetUser = (user) => {
-    return `Welcome back, ${user}`
+const greetUser = (username) => {
+    return `Welcome back, ${username}`
 }
 console.log(greetUser(`Andrew`))
 
@@ -52,14 +52,15 @@ console.log(greetUser(`Andrew`))
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
+
 const canWeDeliver = (zip) => {
     for(i = 0; i < deliveryAreaZipCodes.length; i++){
     if(zip === deliveryAreaZipCodes[i]){
         return `You're in our delivery zone!`
-    }else{
-        return `Sorry, we can't deliver to that address`
     }
+    
 }
+return `Sorry, we can't deliver to that address.`
 }
 console.log(canWeDeliver(85200))
 console.log(canWeDeliver(85205))
@@ -82,8 +83,16 @@ console.log(canWeDeliver(85205))
 */
 
 // CODE HERE
-const canWeDeliverTwo = deliveryAreaZipCodes
-console.log(canWeDeliverTwo.includes(85205))
+// const canWeDeliverTwo = deliveryAreaZipCodes
+// console.log(canWeDeliverTwo.includes(85205))
+
+const canWeDeliverTwo = zip => {
+    if(deliveryAreaZipCodes.includes(zip)){
+        return `You're in our delivery zone`
+    }else {
+        return `Sorry we cant deliver to that address`
+    }
+}
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -119,9 +128,10 @@ const deals = [
 */
 
 //CODE HERE
-console.log(deals.replace('15', '10'))
-console.log(bigDeals)
+// console.log(deals.replace('15', '10'))
+// console.log(bigDeals)
 
+deals [0].title = deals[0].title.replace("15", "10")
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -136,5 +146,9 @@ console.log(bigDeals)
 */
 
 //CODE HERE
-const familyDeal = deals.replace({title}, 'March', 'April')
-console.log(familyDeal)
+// const familyDeal = deals.replace({title}, 'March', 'April')
+// console.log(familyDeal)
+
+deals[1].desc = deals[1].desc.trim().replace("March","April")
+
+console.log(deals)
